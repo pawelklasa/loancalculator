@@ -17,16 +17,16 @@ function calculateResults(e) {
     const calcPayments = parseFloat(yearsToPay.value) * 12;
 
     // Compute monthly payments
-    const x =  Math.pow(calcIterest, calcPayments);
+    const x =  Math.pow(1 + calcInterest, calcPayments);
     const monthly = (principal*x*calcInterest)/(x-1);
 
     if (isFinite(monthly)) {
         monthlyPayment.value = monthly.toFixed(2);
         totalPayment.value = (monthly * calcPayments).toFixed(2);
-        totalInterest.value = ((monthly*calcPayments)-principle).toFixed(2);
+        totalInterest.value = ((monthly * calcPayments)-principal).toFixed(2);
      } else {
        console.log('Check your numbers');
-    }
+    };
 
     e.preventDefault();
 };
