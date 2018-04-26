@@ -26,6 +26,7 @@ function calculateResults(e) {
         totalInterest.value = ((monthly * calcPayments)-principal).toFixed(2);
      } else {
        console.log('Check your numbers');
+       // change to a notification div
     };
 
     e.preventDefault();
