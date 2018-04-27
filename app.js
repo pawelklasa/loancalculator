@@ -29,7 +29,7 @@ function calculateResults(e) {
     };
 
     e.preventDefault();
-};
+}
 
 // showError function
 function showError(error) {
@@ -37,8 +37,23 @@ function showError(error) {
     const errorDiv = document.createElement('div');
     // Add class
     errorDiv.className = 'alert alert-danger';
+
+    // Get elements
+    const card = document.querySelector('.card');
+    const heading = document.querySelector('.heading');
+
     // Create text node and append div
     errorDiv.appendChild(document.createTextNode(error));
-    
 
+    // Inert error above heading
+    card.insertBefore(errorDiv, heading);
+
+    // Clear error after 3 secs
+    setTimeout(clearError, 3000);
+}
+
+// clearError
+
+function clearError() {
+    document.querySelector('.alert').remove();
 }
